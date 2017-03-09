@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bodega
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="about">
+	 <ion-searchbar ></ion-searchbar>
+    <!--No consumibles: {{wares?.length}}-->
+   <ion-list>
+      <ion-item>
+        <ion-label fixed>Nombre de Material</ion-label>
+        <ion-input #name type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>No. Serie</ion-label>
+        <ion-input #serie type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Marca</ion-label>
+        <ion-input #brand type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Modelo</ion-label>
+        <ion-input #model type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Descripción</ion-label>
+        <ion-input #description type="text"></ion-input>
+      </ion-item>
+
+      <button full (click)= "onAddWare(name,serie,brand,model,description)">Agregar</button>
+
+      <!--Elementos disponibles, filtrar por disponibilidad -->
+      <ion-item *ngFor="let ware of wares ">
+        <!--<ion-avatar item-left>
+          <img src="">
+        </ion-avatar>-->
+        <ion-icon name="close" style="float:right;cursor:pointer;color:red;" (click)="onRemove(ware.id)"></ion-icon>
+        <ion-icon name="brush" style="margin-right:10px;float:right;cursor:pointer;color:#387ef5;" (click)="onEdit(ware)"></ion-icon>
+        
+        <h2>{{ware.name}}</h2>
+        <p><b>Numero Serial:</b> {{ware.no_serie}}</p>
+        <p><b>Obra Asignada:</b> {{ware.work?.title}}</p>
+        <p><b>Encargado:</b> {{ware.assigned_to}}</p>
+        <p><b>Estatus:</b> <span *ngIf="ware.work">Ocupado</span><span *ngIf="!ware.work">Disponible</span></p>
+        <p><b>Categoría:</b>{{ware.category}}</p>
+      </ion-item>
+
+  </ion-list>
+</ion-content>

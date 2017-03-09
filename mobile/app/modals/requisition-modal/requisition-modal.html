@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Requerimiento
+    </ion-title>
+    <ion-buttons start>
+      <button (click)="dismiss()">
+        <span primary showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-list>
+        <ion-item>
+            <ion-label fixed>Producto</ion-label>
+            <ion-input #product type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Unidad</ion-label>
+            <ion-input #unit type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Cantidad Requerida</ion-label>
+            <ion-input #qty_required type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Fecha Requerida</ion-label>
+            <ion-input #date type="date"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Partida</ion-label>
+            <ion-input #departure type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Descripción / Partida</ion-label>
+            <ion-input #description type="text"></ion-input>
+        </ion-item>
+
+        <button full (click)="sendReq(product, unit, qty_required, departure, description)">Requisitar</button>
+
+         <ion-item *ngFor="let req of reqs ">
+            <h2>{{req.product}}</h2>
+            <p><b>Cantidad Requerida:</b> {{req.qty_required}} {{req.unit}}</p>
+            <p><b>Partida:</b> {{req.departure}}</p>
+            <p><b>Estatus:</b> {{req.status}}</p>
+            <p><b>Requesitado por:</b> {{req.user.first_name}} {{req.user.last_name}}</p>
+            <button full (click)="preapproveReq(req)"><ion-icon name="checkmark" *ngIf="role == 'Administrador'" style="float:right;cursor:pointer;color:green;" ></ion-icon> Aprobar</button>
+        </ion-item>
+
+  </ion-list>
+</ion-content>

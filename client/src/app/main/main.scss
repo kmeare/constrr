@@ -1,0 +1,33 @@
+/**
+ *  Do not remove the comment below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+.lead {
+  position: relative;
+  img{
+    width: 200px;
+  }
+  .bottom-label-img{
+    background: #000;
+    width: 200px;
+    margin: 5px auto;
+    margin-top: -5px;
+    font-size: 14px;
+    cursor: pointer;
+    
+  }
+}
+
+.std-button:hover{
+  color: #000;
+}
+
+/**
+ *  Do not remove the comment below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector

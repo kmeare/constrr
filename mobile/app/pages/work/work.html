@@ -1,0 +1,72 @@
+<!--
+  Generated template for the WorkPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{workDetails?.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Detalles
+    </ion-card-header>
+    <ion-card-content>
+      <p><b>Dirección:</b>{{workDetails?.address}}</p>
+      <p><b>Latitud y Longitud:</b>{{workDetails?.lat}} , {{workDetails?.lon}}</p>
+      <p><b>Metros:</b>{{workDetails?.mts}}</p>
+      <p><b>Estado:</b>{{workDetails?.state}}</p>
+      <p><b>Descripción:</b>{{workDetails?.description}}</p>
+    </ion-card-content>
+  </ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Fases o Conceptos
+  </ion-card-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Nueva Fase</ion-label>
+      <ion-select [(ngModel)]="idPhase" (ionChange)="onSelectPhase(idPhase)">
+        <ion-option value="{{ph.id}}" *ngFor="let ph of allPhases">{{ph.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-item *ngFor='let phase of phases' (click)="openPhaseModal(phase)">
+        <ion-icon name="construct" item-left></ion-icon>
+        {{phase.name}}
+          <ion-icon name="remove-circle" item-right style="color:red;"(click)="removePhase($event,phase)"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Documentos Colaborativos
+  </ion-card-header>
+
+  <ion-list>
+    <div ion-item *ngFor='let spread of spreads' >
+      <a href="http://intranet.sicosa.mx:8000/{{spread.url}}">
+      <ion-icon name="document" item-left></ion-icon>
+      {{spread.name}}</a>
+    </div>
+  </ion-list>
+</ion-card>
+<button full (click)="openBinnacleModal(workDetails)">Agregar Bitácora</button>
+<button full (click)="openEmployeeModal(workDetails)">Agregar Empleado</button>
+<button full (click)="openReqModal(workDetails)">Nueva Requisición</button>
+<!--<button full (click)="takePhoto(workDetails)">Tomar Foto</button>-->
+<button full dark (click)="openWorkwareModal(workDetails)">Bodega de {{workDetails?.title}}</button>
+Última Foto:
+<img id="lastPhoto" src="" *ngIf="base64Image" />
+</ion-content>

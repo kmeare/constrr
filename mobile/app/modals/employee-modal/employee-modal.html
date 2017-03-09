@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Empleados
+    </ion-title>
+    <ion-buttons start>
+      <button (click)="dismiss()">
+        <span primary showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-list>
+        <ion-item>
+            <ion-label fixed>Nombre Completo</ion-label>
+            <ion-input #wareName type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Posición/Puesto</ion-label>
+            <ion-input #wareSerie type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Admisión</ion-label>
+            <ion-input #wareComments type="date"></ion-input>
+        </ion-item>
+
+
+        <button full >Agregar Empleado</button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Bienvenido {{first_name}} {{last_name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+
+   <ion-card (click)="onClickWork(work.id)"  class="card-background-page" *ngFor='let work of works'>
+     <img src="http://intranet.sicosa.mx/images/{{work.photo}}.jpg" onError="this.onerror=null;this.src='http://img01.deviantart.net/6d6c/i/2008/193/5/9/architecture_sketch_by_oriondeft.jpg';"/>
+     <div class="card-title">{{work.title}}</div>
+   </ion-card>
+
+   <!-- <ion-card class="card-background-page">
+     <img src="http://ionicframework.com/dist/preview-app/www/img/card-amsterdam.png"/>
+     <div class="card-title">Amsterdam</div>
+   </ion-card> -->
+
+</ion-content>

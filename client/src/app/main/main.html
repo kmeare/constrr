@@ -1,0 +1,69 @@
+<div>
+<!--<div layout="vertical" layout-fill>-->
+  <md-content >
+    <header>
+      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    </header>
+
+    <section class="jumbotron">
+      <h1>'ConstrR!</h1>
+      <div class="lead">
+        <img src="http://localhost:8000/{{main.userData.avatar}}" alt="I'm Yeoman"><br>
+        <!--<input type="file" nv-file-select uploader="main.uploader"/><br/>-->
+        <div class="bottom-label-img"><i class="fa fa-pencil" ng-click="main.editAvatar($event)"></i> Editar</div>
+        Buenos días, <b>{{main.userData.first_name}} {{main.userData.last_name}}</b> 
+        Email: <b>{{main.userData.email}}</b>
+      </div>
+      <!--<md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Splendid Toastr</md-button>
+      <p>
+        With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
+      </p>-->
+    </section>
+    <md-content layout-xs="column" layout="row" layout-align="center">
+      <div class="techs" layout-align="center" layout-wrap>
+        
+        <md-card  flex="40" flex-xs="80" flex-sm="80">
+          <md-card-content>
+            <md-card-header>
+              
+            </md-card-header>
+            <img class="pull-right" src="http://localhost:8000/{{work.img}}" alt="{{ work.name }}">
+            <md-input-container>
+              <label>Nombre</label>
+              <input ng-model="main.work.name">
+            </md-input-container> 
+            <md-input-container class="md-block">
+              <label>Descripción</label>
+              <textarea ng-model="main.work.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </md-card-content>
+          <div class="md-action-buttons" layout-align="end center">
+            <md-button class="std-button" ng-click="main.saveNewWork($event)">Crear Nueva Obra</md-button>
+          </div>
+        </md-card>
+        
+        <md-card ng-repeat="work in main.works | orderBy:'rank'" flex="40" flex-xs="80" flex-sm="80">
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3></h3>
+                <span flex></span>
+                <md-button ng-click="main.showConfirm($evet,work.id)"><ANY><i class="fa fa-times"></i></ANY></md-button>
+            </div>
+          </md-toolbar>  
+          <md-card-content>
+            <img class="pull-right" src="http://localhost:8000/{{work.img}}" alt="{{ work.name }}">
+            <h3 class="md-title">{{ work.name }}</h3>
+            <p>{{ work.description }}</p>
+          </md-card-content>
+          <div class="md-action-buttons" layout-align="end center">
+            <md-button class="std-button" href="/#/work/{{ work.id }}">Detalles</md-button>
+          </div>
+        </md-card>
+
+        
+
+      </div>
+    </md-content>
+  </md-content>
+
+</div>

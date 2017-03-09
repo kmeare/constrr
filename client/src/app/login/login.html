@@ -1,0 +1,28 @@
+<div class="login">
+    <h1>Sicosa S.A de C.V</h1>
+    <h3>(Sistema de Control)</h3>
+      <form name="clientLogin">
+        <md-input-container>
+          <md-icon><i class="fa fa-user-o"></i></md-icon>
+          <input ng-model="login.user.username" name="userName" type="text" placeholder="Usuario" ng-required="true">
+          <div ng-messages="clientLogin.userName.$error">
+            <div ng-message="required">Tu Usuario es requerido</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-no-float>
+          <!-- Use floating placeholder instead of label -->
+          <md-icon></md-icon>
+          <input ng-model="login.user.password" type="password" placeholder="Contraseña" ng-required="true" name="userPassword">
+          <div ng-messages="clientLogin.userPassword.$error">
+            <div ng-message="required">Tu contraseña es requerida</div>
+          </div>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="login.submit($event)">Login</md-button>
+      </form>
+    <footer>
+      <a href="http://www.material-angularjs.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/320px-AngularJS_logo.svg.png"></a>
+      <p>You Gotta Love <a href="http://www.material-angularjs.org/" target="_blank">Angular Material</a></p>
+    </footer>
+
+  </div>

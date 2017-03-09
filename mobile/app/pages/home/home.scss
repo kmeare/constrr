@@ -1,0 +1,22 @@
+.home {
+  .card-background-page{
+    cursor: pointer;
+    .card-title {
+      // position: absolute;
+      // top: 22%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      //left: 32%;
+      margin-top: -44px;
+    }
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+  }
+}

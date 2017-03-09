@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mi Perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-list-header>{{first_name}} {{last_name}}</ion-list-header>
+    <ion-item>
+      <button full>Cambiar Contraseña</button>
+      <!--<button full>Mis Reportes</button>-->
+      <button full >Mis Documentos</button>
+      <button full>Mis Requisiciones </button>
+      <button (click)="onClickLogout()" full danger >Salir</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
